@@ -1,0 +1,221 @@
+---
+// TODO: Componetizar.
+
+interface Props {
+    pilltype: string;
+}
+
+const { pilltype } = Astro.props;
+
+let tech = {
+    name: "",
+    class: "",
+};
+
+switch (pilltype) {
+    case "javascript":
+        tech.name = "Javascript";
+        tech.class = "javascript";
+        break;
+    case "nodejs":
+        tech.name = "NodeJs";
+        tech.class = "nodejs";
+        break;
+    case "csharp":
+        tech.name = "C#";
+        tech.class = "csharp";
+        break;
+    case "aspnet":
+        tech.name = "Asp .Net";
+        tech.class = "aspnet";
+        break;
+    case "dotnet":
+        tech.name = ".Net";
+        tech.class = "dotnet";
+        break;
+    case "express":
+        tech.name = "Express";
+        tech.class = "express";
+        break;
+    case "sqlserver":
+        tech.name = "SqlServer";
+        tech.class = "sqlserver";
+        break;
+    case "mongobd":
+        tech.name = "MongoDB";
+        tech.class = "mongodb";
+        break;
+    case "html":
+        tech.name = "HTML";
+        tech.class = "html";
+        break;
+    case "css":
+        tech.name = "CSS";
+        tech.class = "css";
+        break;
+    case "tailwind":
+        tech.name = "Tailwind";
+        tech.class = "tailwind";
+        break;
+    case "reactjs":
+        tech.name = "ReactJs";
+        tech.class = "reactjs";
+        break;
+    case "nextjs":
+        tech.name = "NextJs";
+        tech.class = "nextjs";
+        break;
+    case "astro":
+        tech.name = "AstroJs";
+        tech.class = "astro";
+        break;
+    case "prisma":
+        tech.name = "Prisma";
+        tech.class = "prisma";
+        break;
+    case "fullstack":
+        tech.name = "Full Stack";
+        tech.class = "fullstack";
+        break;
+    case "webpage":
+        tech.name = "Web Page";
+        tech.class = "webpage";
+        break;
+    case "desktopapp":
+        tech.name = "Desktop App";
+        tech.class = "desktopapp";
+        break;
+    case "gdscript":
+        tech.name = "GDScript";
+        tech.class = "gdscript";
+        break;
+    case "glsl":
+        tech.name = "GLSL";
+        tech.class = "glsl";
+        break;
+    case "gdengine":
+        tech.name = "GDEngine";
+        tech.class = "gdengine";
+        break;
+
+    case "game":
+        tech.name = "Game";
+        tech.class = "game";
+        break;
+    case "plugin":
+        tech.name = "Plugin";
+        tech.class = "plugin";
+        break;
+    default:
+        tech.name = pilltype;
+        tech.class = "default";
+        break;
+}
+---
+
+<span
+    class={`
+        inline-block rounded-full px-3 py-1 md:text-sm text-xs font-semibold mr-2 mb-2
+        ${tech.class} text-white
+    `}
+>
+    {tech.name}
+</span>
+
+<style>
+    .javascript {
+        background-color: rgb(204, 133, 0);
+    }
+
+    .nodejs {
+        background-color: green;
+    }
+
+    .express {
+        background-color: green;
+    }
+
+    .sqlserver {
+        background-color: blueviolet;
+    }
+
+    .mongodb {
+        background-color: green;
+    }
+
+    .dotnet {
+        background-color: blueviolet;
+    }
+
+    .aspnet {
+        background-color: blueviolet;
+    }
+
+    .csharp {
+        background-color: blueviolet;
+    }
+
+    .html {
+        background-color: orangered;
+    }
+
+    .reactjs {
+        background-color: #16a6e4;
+    }
+
+    .css {
+        background-color: royalblue;
+    }
+
+    .tailwind {
+        background-color: #38bdf8;
+    }
+
+    .nextjs {
+        background-color: #16a6e4;
+    }
+
+    .fullstack {
+        background-color: green;
+    }
+
+    .webpage {
+        background-color: green;
+    }
+
+    .astro {
+        background-color: #ec4899;
+    }
+
+    .prisma {
+        background-color: cornflowerblue;
+    }
+
+    .desktopapp {
+        background-color: green;
+    }
+
+    .default {
+        background-color: slategrey;
+    }
+
+    .gdscript {
+        background-color: #139cd6;
+    }
+
+    .glsl {
+        background-color: #ec4899;
+    }
+
+    .gdengine {
+        background-color: #2563eb;
+    }
+
+    .game {
+        background-color: green;
+    }
+
+    .plugin{
+        background-color: green;
+    }
+</style>

@@ -1,0 +1,32 @@
+---
+import ProfileInfo from "./ProfileInfo.astro";
+import ProfileSocial from "./ProfileSocial.astro";
+
+---
+
+<div
+    class="flex flex-row items-center justify-between mx-auto mb-5 xl:w-[76rem] gap-2 px-3"
+>
+    <div class="flex flex-col items-center justify-between mx-auto gap-5">
+        <section
+            class="flex flex-col items-center justify-center lg:items-start"
+        >
+            <img
+                src="/images/profile/foto-perfil.jpg"
+                class="rounded-full w-42 h-48 mb-5 outline outline-2 block lg:hidden outline-blue-500"
+            />
+            <h1
+                class="text-4xl xl:text-5xl font-bold flex flex-col lg:flex-row sm:gap-3 items-center lg:items-start mb-5"
+            >
+                Full Stack Dev & <span class="text-blue-500">Indie Gamedev</span
+                >
+            </h1>
+            <ProfileInfo />
+            <ProfileSocial />
+        </section>
+    </div>
+    <img
+        src="/images/profile/foto-perfil.jpg"
+        class="rounded-full hidden lg:block w-64 h-64 outline outline-2 outline-blue-500"
+    />
+</div>

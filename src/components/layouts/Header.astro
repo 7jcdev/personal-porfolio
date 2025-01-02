@@ -1,0 +1,127 @@
+---
+const routes = [
+    {
+        name: "Inicio",
+        url: "/",
+        label: "inicio",
+        target: "",
+    },
+    {
+        name: "Proyectos",
+        url: "/all-proyects",
+        label: "proyectos",
+        target: "",
+    },
+    {
+        name: "Blog",
+        url: "https://cyberthrob.github.io/",
+        target: "_bank",
+    },
+];
+
+//bg-[rgba(14,165,233,0.1)]
+---
+
+<header class="fixed w-screen z-10">
+    <div class="flex items-center justify-start sm:justify-center mx-0">
+        <!-- Horizontal menu -->
+        <div
+            class="flex flex-row gap-3 items-center justify-between
+                py-2 px-4 h-16 w-full
+                font-bold text-xl
+                bg-slate-900 bg-opacity-50 backdrop-blur-sm"
+        >
+            <!-- Burger Menu -->
+            <button class="sm:hidden" id="burger-show-menu">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-baseline-density-medium"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 20h16"></path>
+                    <path d="M4 12h16"></path>
+                    <path d="M4 4h16"></path>
+                </svg>
+            </button>
+            <!--  -->
+            <nav
+                class="sm:flex flex-row gap-3 w-[76rem] items-center justify-end container px-4 mx-auto hidden"
+            >
+                {
+                    routes.map((item) => (
+                        <a
+                            class="text-xl font-bold hover:text-blue-400 active:text-blue-300 "
+                            href={item.url}
+                            target={item.target}
+                            aria-label={item.label}
+                        >
+                            {item.name}
+                        </a>
+                    ))
+                }
+                <!--
+                <a
+                    id="cv-dl"
+                    href="/cv"
+                    target="_bank"
+                    class="px-3 py-1 rounded-xl text-center font-bold text-white
+                    bg-blue-500 hover:bg-blue-400 active:bg-blue-500 bg-opacity-30"
+                    >CV</a
+                > -->
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Vertical Menu -->
+<div
+    class="fixed translate-y-[4.0rem] h-full w-52 z-10 -translate-x-60"
+    id="vertical-menu"
+>
+    <nav class="flex flex-col gap-5 items-center justify-center">
+        {
+            routes.map((item) => (
+                <a
+                    class="text-4xl font-bold hover:text-blue-400 active:text-blue-300 "
+                    href={item.url}
+                    target={item.target}
+                    aria-label={item.label}
+                >
+                    {item.name}
+                </a>
+            ))
+        }
+        <!--
+        <a
+            id="cv-dl"
+            href="/CV"
+            target="_bank"
+            class="px-3 py-1 rounded-xl text-center text-4xl font-bold text-white
+            bg-blue-500 hover:bg-blue-400 active:bg-blue-500 bg-opacity-30"
+            >CV</a
+        > -->
+    </nav>
+</div>
+
+<script>
+    let showSidebar: boolean = false;
+    const burger = document.querySelector("#burger-show-menu") as Element;
+    const vmenu = document.querySelector("#vertical-menu") as Element;
+    burger?.addEventListener("click", () => {
+        showSidebar = !showSidebar;
+        //vmenu.classList.toggle('hidden');
+        const common: string =
+            "fixed translate-y-[3.9rem] h-full py-10 z-10 bg-slate-900 bg-opacity-50 backdrop-blur-md";
+        vmenu.className = showSidebar
+            ? common + " " + "translate-x-0 w-full transition-transform"
+            : common + " " + "-translate-x-60 w-52 transition-transform";
+    });
+</script>

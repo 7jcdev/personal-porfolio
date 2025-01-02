@@ -1,0 +1,35 @@
+---
+interface Props {
+    imgSrc: string;
+    link: string;
+    title: string;
+}
+
+const { imgSrc, title, link } = Astro.props;
+---
+
+<a
+    class="flex p-[1.5px] sm:h-[38rem] md:h-[40rem] lg:h-[37rem] hover:text-sky-300  group  transition-transform duration-300 ease-out hover:scale-[1.03]"
+    href={link}
+>
+    <div
+        class="rounded-lg shadow-lg w-full h-full
+        bg-slate-800 bg-opacity-70 group-hover:bg-[radial-gradient(circle_500px_at_50%_200px,rgba(14,165,233,0.5),transparent)]"
+    >
+        <img
+            class="p-[0.2rem] rounded-xl overflow-hidden w-full"
+            src={imgSrc}
+            alt=""
+        />
+
+        <div class="flex flex-col items-center justify-center py-5">
+            <div class="px-6 py-2 text-center">
+                <div class="font-bold text-xl mb-2">{title}</div>
+            </div>
+
+            <div class="mx-auto px-2 py-2 text-center text-ellipsis">
+                <slot name="pills" />
+            </div>
+        </div>
+    </div>
+</a>

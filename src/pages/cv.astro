@@ -1,0 +1,21 @@
+---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+---
+
+<GlobalLayout title="CV">
+    <div class="flex flex-col mb-5">
+        <h1
+            class="flex flex-row text-5xl font-bold sm:gap-3 items-center justify-center
+                 md:text-7xl rounded-md mb-5
+                text-white"
+        >
+            C <span class="text-blue-500">V</span>
+        </h1>
+        <embed
+            src="/documents/CV.pdf"
+            type="application/pdf"
+            width="100%"
+            class="h-[24rem] md:h-[100rem]"
+        />
+    </div>
+</GlobalLayout>

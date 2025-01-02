@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import ProyectCard from "./ProyectCard.astro"
+import Pill from "./Pill.astro";
+
+/* TODO: Añadir cuantos proyectos mostrar y posiblemente un paginador */
+
+const proyects = (await getCollection("proyects")).sort(
+    (a: any, b: any) => a.data.order.valueOf() - b.data.order.valueOf(),
+);
+---
+
+<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 px-1">
+    {
+        proyects.map((proyect: any) => (
+            <li>
+                <ProyectCard
+                    link={`/${proyect.slug}/`}
+                    title={proyect.data.title}
+                    imgSrc={proyect.data.heroImage}
+                >
+                    {proyect.data.pills.map((pill: any) => (
+                        <Pill pilltype={`${pill}`} slot="pills" />
+                    ))}
+                </ProyectCard>
+            </li>
+        ))
+    }
+</ul>
